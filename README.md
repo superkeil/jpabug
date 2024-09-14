@@ -14,3 +14,6 @@
 
 To reproduce, stop the server, relaunch it, and go to step 2
 
+
+
+=> fix was to call : entityManager.clear();

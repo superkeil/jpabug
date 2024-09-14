@@ -1,5 +1,6 @@
 package toto.controllers;
 
+import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,9 @@ public class BookController {
     @Autowired
     private AuthorRepository authorRepository;
 
+    @Autowired
+    private EntityManager entityManager;
+
     @RequestMapping("/")
     public String initDb() {
         Author author = new Author();
@@ -26,6 +30,8 @@ public class BookController {
         book.setTitle("some_title");
         book.setAuthorId(author.getId());
         bookRepository.save(book);
+
+        entityManager.clear();
 
         Book fetchedBook = bookRepository.findAll().iterator().next();
         return "Author name " + fetchedBook.getAuthor().getName();

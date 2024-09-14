@@ -14,3 +14,5 @@
 
 To reproduce, stop the server, relaunch it, and go to step 2
 
+
+=> fix here : https://github.com/superkeil/jpabug/pull/1/files
